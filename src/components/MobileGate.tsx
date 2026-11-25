@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { weddingConfig } from "@/config/wedding";
-import { PulliKolamDivider, TempleBorder } from "./TamilMotifs";
+import { PulliKolamDivider } from "./TamilMotifs";
 
 /**
  * Checks whether the current environment is a desktop or laptop.
@@ -47,7 +47,14 @@ function DesktopGateView({ url }: { url: string }) {
   return (
     <main className="min-h-[100dvh] w-full bg-[#FFF8EC] text-[#3B2A20] flex flex-col justify-between items-center text-center px-6">
       <div className="w-full max-w-md pt-2">
-        <TempleBorder />
+        <div
+          aria-hidden="true"
+          className="w-full h-6 bg-repeat-x bg-center select-none"
+          style={{
+            backgroundImage: "url('/images/temple-border-red.webp')",
+            backgroundSize: "auto 24px",
+          }}
+        />
       </div>
 
       <section className="max-w-md w-full py-10 flex flex-col items-center">
@@ -99,7 +106,14 @@ function DesktopGateView({ url }: { url: string }) {
       </section>
 
       <div className="w-full max-w-md pb-2">
-        <TempleBorder flip />
+        <div
+          aria-hidden="true"
+          className="w-full h-6 bg-repeat-x bg-center rotate-180 select-none"
+          style={{
+            backgroundImage: "url('/images/temple-border-red.webp')",
+            backgroundSize: "auto 24px",
+          }}
+        />
       </div>
     </main>
   );

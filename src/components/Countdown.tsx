@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { weddingConfig } from "@/config/wedding";
 
 interface TimeLeft {
@@ -64,6 +65,15 @@ export function Countdown() {
       aria-labelledby="countdown-heading"
       className="px-5 py-6 text-center"
     >
+      <Image
+        src="/images/twin-lotuses.webp"
+        alt=""
+        width={224}
+        height={420}
+        loading="lazy"
+        aria-hidden="true"
+        className="w-16 h-auto mx-auto mb-2.5 select-none pointer-events-none"
+      />
       <h2
         id="countdown-heading"
         lang="ta"
@@ -96,7 +106,7 @@ export function Countdown() {
           {units.map((unit) => (
             <div
               key={unit.label}
-              className="zari-card py-3 px-1.5 rounded-xl bg-[#FFF8EC]"
+              className="py-3 px-1.5 rounded-xl border border-[#B8860B]/40 bg-[#FFF8EC]"
             >
               <div className="font-tamil-serif text-2xl font-semibold text-[#8B1A1A] tabular-nums leading-tight">
                 {unit.value}
