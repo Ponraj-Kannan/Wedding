@@ -7,6 +7,7 @@
   --turmeric: #F2B705;
   --text: #3B2A20;
   --leaf: #4E6B3A;
+  --lotus: #C96A6E;
 }
 
 html {
@@ -38,6 +39,19 @@ body {
   font-family: var(--font-body), "Mukta Malar", system-ui, sans-serif;
 }
 
+/* Subtle Kanchipuram-style double zari hairline border for cards */
+.zari-card {
+  position: relative;
+  border: 1px solid rgba(184, 134, 11, 0.48);
+  outline: 1px solid rgba(139, 26, 26, 0.14);
+  outline-offset: -5px;
+}
+
+/* Cover reveal transition */
+.cover-fade {
+  transition: opacity 420ms ease-out;
+}
+
 /* Soft fade-in on scroll with reduced-motion support */
 .reveal-section {
   opacity: 0;
@@ -55,7 +69,8 @@ body {
     scroll-behavior: auto;
   }
   .reveal-section,
-  .reveal-section.is-visible {
+  .reveal-section.is-visible,
+  .cover-fade {
     opacity: 1;
     transform: none;
     transition: none;

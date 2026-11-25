@@ -96,7 +96,7 @@ export function Countdown() {
           {units.map((unit) => (
             <div
               key={unit.label}
-              className="py-3 px-1.5 rounded-xl border border-[#B8860B]/40 bg-[#FFF8EC]"
+              className="zari-card py-3 px-1.5 rounded-xl bg-[#FFF8EC]"
             >
               <div className="font-tamil-serif text-2xl font-semibold text-[#8B1A1A] tabular-nums leading-tight">
                 {unit.value}

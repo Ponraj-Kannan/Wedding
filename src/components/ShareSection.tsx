@@ -113,7 +113,11 @@ export function ShareSection() {
   };
 
   return (
-    <section aria-labelledby="share-heading" className="px-5 py-6 text-center">
+    <section
+      id="share"
+      aria-labelledby="share-heading"
+      className="px-5 py-6 text-center scroll-mt-4"
+    >
       <h2
         id="share-heading"
         lang="ta"

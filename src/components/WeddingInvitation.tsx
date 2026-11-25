@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { weddingConfig } from "@/config/wedding";
 import {
@@ -8,18 +8,23 @@ import {
   JasmineGarlandLine,
   KolamCorner,
   KuthuvilakkuIcon,
+  LotusAccent,
   MaavilaiThoranam,
+  MandapamPillar,
   MayilFeatherAccent,
+  MudichuMotif,
   NadaswaramThavilIcon,
   PulliKolamDivider,
   TempleBorder,
   ThaaliIcon,
+  ThiruvatchiArch,
   VaazhaiMaram,
 } from "./TamilMotifs";
 import { Countdown } from "./Countdown";
 import { ShareSection } from "./ShareSection";
 import { OptionalSections } from "./OptionalSections";
 import { RevealOnScroll } from "./RevealOnScroll";
+import { InvitationCover } from "./InvitationCover";
 
 function GuestGreeting() {
   const searchParams = useSearchParams();
@@ -50,6 +55,7 @@ function formatTamilMonthDisplay(month: string, day: string): string {
 export function WeddingInvitation() {
   const {
     couple,
+    cover,
     hero,
     invitation,
     eventsSection,
@@ -59,6 +65,19 @@ export function WeddingInvitation() {
     footer,
   } = weddingConfig;
 
+  const [isOpened, setIsOpened] = useState(!cover.enabled);
+
+  if (!isOpened) {
+    return (
+      <InvitationCover
+        onOpen={() => {
+          setIsOpened(true);
+          window.scrollTo({ top: 0, behavior: "auto" });
+        }}
+      />
+    );
+  }
+
   return (
     <div className="w-full min-h-[100dvh] bg-[#FFF8EC] text-[#3B2A20]">
       <main className="w-full max-w-[430px] mx-auto bg-[#FFF8EC] relative overflow-x-hidden">
@@ -67,18 +86,28 @@ export function WeddingInvitation() {
           <TempleBorder />
           <MaavilaiThoranam className="-mt-0.5" />
 
-          {/* Subtle corner kolam accents */}
-          <KolamCorner className="absolute top-16 left-1 opacity-75" />
-          <KolamCorner className="absolute top-16 right-1 opacity-75" flipX />
-
-          {/* Subtle banana trees framing hero edges */}
-          <VaazhaiMaram className="w-14 h-36 absolute bottom-12 left-0 opacity-85" />
-          <VaazhaiMaram
-            className="w-14 h-36 absolute bottom-12 right-0 opacity-85"
+          {/* Slender Mandapam Pillars framing the Hero edges */}
+          <MandapamPillar className="w-[18px] h-[calc(100%-56px)] absolute top-14 left-0 opacity-90" />
+          <MandapamPillar
+            className="w-[18px] h-[calc(100%-56px)] absolute top-14 right-0 opacity-90"
             flipX
           />
 
-          <div className="relative z-10 px-6 pt-3">
+          {/* Subtle corner kolam accents */}
+          <KolamCorner className="absolute top-[74px] left-3.5 opacity-65" />
+          <KolamCorner
+            className="absolute top-[74px] right-3.5 opacity-65"
+            flipX
+          />
+
+          {/* Subtle banana trees peeking inward from behind pillars */}
+          <VaazhaiMaram className="w-14 h-36 absolute bottom-12 left-2 opacity-85" />
+          <VaazhaiMaram
+            className="w-14 h-36 absolute bottom-12 right-2 opacity-85"
+            flipX
+          />
+
+          <div className="relative z-10 px-8 pt-2">
             {/* Pillaiyar / Murugan invocation */}
             <p
               lang="ta"
@@ -94,7 +123,7 @@ export function WeddingInvitation() {
             </p>
 
             {/* Title with subtle kuthuvilakku accent */}
-            <div className="mt-5 flex flex-col items-center">
+            <div className="mt-4 flex flex-col items-center">
               <KuthuvilakkuIcon className="w-7 h-9 mb-1.5" />
               <h1
                 lang="ta"
@@ -115,11 +144,12 @@ export function WeddingInvitation() {
               <GuestGreeting />
             </Suspense>
 
-            {/* Couple names with Thaali on turmeric thread between them */}
-            <div className="mt-6 mb-5">
+            {/* Temple Arch + Couple names with Thaali on turmeric thread between them */}
+            <div className="mt-4 mb-5">
+              <ThiruvatchiArch className="-mb-2" />
               <p
                 lang="ta"
-                className="font-tamil-serif text-[30px] leading-snug font-bold text-[#8B1A1A]"
+                className="font-tamil-serif text-[28px] leading-snug font-bold text-[#8B1A1A]"
               >
                 {couple.groomTa}
               </p>
@@ -128,7 +158,7 @@ export function WeddingInvitation() {
 
               <p
                 lang="ta"
-                className="font-tamil-serif text-[30px] leading-snug font-bold text-[#8B1A1A]"
+                className="font-tamil-serif text-[28px] leading-snug font-bold text-[#8B1A1A]"
               >
                 {couple.brideTa}
               </p>
@@ -153,10 +183,32 @@ export function WeddingInvitation() {
                 {hero.venueLine}
               </p>
             </div>
+
+            {/* Quick-action jump pills */}
+            <div className="mt-4 flex items-center justify-center gap-2.5">
+              <a
+                href="#venues"
+                className="min-h-[48px] px-4 py-2 rounded-full border border-[#B8860B]/55 bg-[#FFF8EC] text-[#8B1A1A] text-sm font-medium inline-flex flex-col items-center justify-center leading-tight active:bg-[#8B1A1A]/5"
+              >
+                <span lang="ta">{hero.jumpVenuesTa}</span>
+                <span lang="en" className="text-[11px] text-[#3B2A20]/75">
+                  {hero.jumpVenuesEn}
+                </span>
+              </a>
+              <a
+                href="#share"
+                className="min-h-[48px] px-4 py-2 rounded-full border border-[#4E6B3A]/50 bg-[#4E6B3A]/[0.05] text-[#4E6B3A] text-sm font-medium inline-flex flex-col items-center justify-center leading-tight active:bg-[#4E6B3A]/10"
+              >
+                <span lang="ta">{hero.jumpShareTa}</span>
+                <span lang="en" className="text-[11px] text-[#3B2A20]/75">
+                  {hero.jumpShareEn}
+                </span>
+              </a>
+            </div>
           </div>
 
           {/* Gopuram line-art silhouette at hero bottom */}
-          <div className="mt-5 px-4">
+          <div className="mt-5 px-6">
             <GopuramSilhouette />
           </div>
         </header>
@@ -167,6 +219,7 @@ export function WeddingInvitation() {
             aria-label="Invitation Message"
             className="px-6 pt-5 pb-2 text-center"
           >
+            <MudichuMotif className="mb-3" />
             <p
               lang="ta"
               className="font-tamil-serif text-lg font-semibold text-[#8B1A1A]"
@@ -323,7 +376,11 @@ export function WeddingInvitation() {
         {/* E. VENUE */}
         <RevealOnScroll>
           <JasmineGarlandLine className="my-3" />
-          <section aria-labelledby="venues-heading" className="px-5 py-5">
+          <section
+            id="venues"
+            aria-labelledby="venues-heading"
+            className="px-5 py-5 scroll-mt-4"
+          >
             <div className="text-center mb-5">
               <h2
                 id="venues-heading"
@@ -341,11 +398,14 @@ export function WeddingInvitation() {
               {venues.map((venue) => (
                 <article
                   key={venue.id}
-                  className="p-4 rounded-2xl border border-[#B8860B]/45 bg-[#FFF8EC]"
+                  className="zari-card p-5 rounded-2xl bg-[#FFF8EC]"
                 >
                   <h3 className="font-tamil-serif text-base font-semibold text-[#8B1A1A]">
                     <span lang="ta">{venue.headingTa}</span>{" "}
-                    <span lang="en" className="text-sm font-normal text-[#3B2A20]/80">
+                    <span
+                      lang="en"
+                      className="text-sm font-normal text-[#3B2A20]/80"
+                    >
                       / {venue.headingEn}
                     </span>
                   </h3>
@@ -388,7 +448,7 @@ export function WeddingInvitation() {
         <RevealOnScroll>
           <PulliKolamDivider />
           <footer className="text-center pt-2 pb-1">
-            <div className="px-5 pb-5">
+            <div className="px-5 pb-4">
               <MayilFeatherAccent className="mb-2" />
               <p
                 lang="ta"
@@ -399,9 +459,10 @@ export function WeddingInvitation() {
               <p lang="en" className="text-sm text-[#3B2A20]/80 mt-0.5">
                 {footer.welcomeEn}
               </p>
+              <LotusAccent className="mt-3" />
               <p
                 lang="en"
-                className="text-xs text-[#3B2A20]/60 mt-4 tracking-wide"
+                className="text-xs text-[#3B2A20]/60 mt-2 tracking-wide"
               >
                 {footer.credit}
               </p>

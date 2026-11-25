@@ -75,6 +75,15 @@ export const weddingConfig = {
     combinedEn: "K. Vignesh & M. Kumutha",
   },
 
+  cover: {
+    /** Set to false to skip the tap-to-open Mandapam seal and show the invitation immediately */
+    enabled: true,
+    monogramLeft: "V",
+    monogramRight: "K",
+    openButtonTa: "அழைப்பிதழைத் திறக்கவும்",
+    openButtonEn: "Open Invitation",
+  },
+
   hero: {
     pillaiyarMark: "உ",
     invocationTa: "பிள்ளையார் துணை | முருகன் துணை",
@@ -87,6 +96,10 @@ export const weddingConfig = {
     venueLine: "T. Kallupatti, Madurai",
     personalInvitePrefixTa: "அன்புடன் அழைக்கிறோம் -",
     personalInvitePrefixEn: "Warmly inviting you -",
+    jumpVenuesTa: "நிகழ்விடங்கள்",
+    jumpVenuesEn: "Venues",
+    jumpShareTa: "நாள்காட்டி",
+    jumpShareEn: "Save Date",
   },
 
   invitation: {
