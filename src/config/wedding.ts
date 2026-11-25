@@ -1,7 +1,7 @@
 /**
  * Central configuration file for K. Vignesh & M. Kumutha's Wedding Invitation.
  * Edit all Tamil & English text, dates, panchangam day numbers, venues,
- * WhatsApp RSVP number, and optional sections from this single file.
+ * and optional sections from this single file.
  */
 
 export interface WeddingEvent {
@@ -190,30 +190,6 @@ export const weddingConfig = {
       buttonEn: "Get Directions",
     },
   ] satisfies VenueInfo[],
-
-  rsvp: {
-    headingTa: "உங்கள் வருகையைப் பதியுங்கள்",
-    headingEn: "Kindly RSVP",
-    /**
-     * Replace with the host family's WhatsApp number in international format
-     * without '+' or spaces (e.g., "919876543210").
-     */
-    whatsappNumber: "919876543210",
-    nameLabelTa: "பெயர்",
-    nameLabelEn: "Your Name",
-    namePlaceholder: "உங்கள் பெயர் / Enter your name",
-    attendanceLabelTa: "தாங்கள் வருகிறீர்களா?",
-    attendanceLabelEn: "Will you attend?",
-    attendingYes: "மகிழ்ச்சியுடன் வருகிறேன்",
-    attendingNo: "வர இயலாது",
-    guestsLabelTa: "வருகை தருவோர் எண்ணிக்கை",
-    guestsLabelEn: "Number of guests",
-    messageLabelTa: "வாழ்த்து / குறிப்பு (விருப்பம்)",
-    messageLabelEn: "Message (optional)",
-    messagePlaceholder: "உங்கள் வாழ்த்துகள்… / Your wishes…",
-    submitLabelTa: "வருகையை உறுதி செய்யுங்கள்",
-    submitLabelEn: "Confirm via WhatsApp",
-  },
 
   share: {
     headingTa: "அழைப்பிதழைப் பகிருங்கள்",

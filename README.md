@@ -21,12 +21,11 @@ npm start
 
 ## Editing Wedding Content
 
-All text, Tamil/English dates, Tamil panchangam day fields, venue details, Google Maps links, WhatsApp RSVP phone number, and optional sections are stored in a single file:
+All text, Tamil/English dates, Tamil panchangam day fields, venue details, Google Maps links, and optional sections are stored in a single file:
 
 - `src/config/wedding.ts`
 
 ### Key fields to customize before sharing:
-1. **`rsvp.whatsappNumber`**: Replace `"919876543210"` with the host family's WhatsApp number in international format (no `+` or spaces).
-2. **`hero.tamilDay` & `events[].tamilDay`**: Leave empty (`""`) or enter the exact கார்த்திகை மாதம் day number from your panchangam.
-3. **`optional`**: Add parent profiles/photos, gallery photos, or a story video in `weddingConfig.optional` whenever ready (hidden automatically when empty).
-4. **Guest personalization**: Share personalized links using `?to=GuestName` (e.g., `https://your-domain.com/?to=Karthik`).
+1. **`hero.tamilDay` & `events[].tamilDay`**: Leave empty (`""`) or enter the exact கார்த்திகை மாதம் day number from your panchangam.
+2. **`optional`**: Add parent profiles/photos, gallery photos, or a story video in `weddingConfig.optional` whenever ready (hidden automatically when empty).
+3. **Guest personalization**: Share personalized links using `?to=GuestName` (e.g., `https://your-domain.com/?to=Karthik`).

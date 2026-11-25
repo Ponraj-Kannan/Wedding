@@ -496,48 +496,6 @@ export function JasmineGarlandLine({ className = "" }: MotifProps) {
 }
 
 /**
- * Thamboolam icon: betel leaves (vetrilai) & coconut on a plate for the RSVP button.
- */
-export function ThamboolamIcon({ className = "" }: MotifProps) {
-  return (
-    <svg
-      viewBox="0 0 32 28"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={`w-6 h-6 shrink-0 select-none ${className}`}
-      aria-hidden="true"
-    >
-      {/* Betel leaves */}
-      <path
-        d="M12 16 C8 11 9 5 14 4 C18 6 17 12 12 16 Z"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        fill="currentColor"
-        fillOpacity="0.15"
-      />
-      <path
-        d="M17 16 C15 10 18 5 23 6 C25 10 22 14 17 16 Z"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        fill="currentColor"
-        fillOpacity="0.1"
-      />
-      {/* Coconut */}
-      <circle cx="19" cy="14" r="4.2" stroke="currentColor" strokeWidth="1.3" />
-      <circle cx="18" cy="13" r="0.6" fill="currentColor" />
-      <circle cx="20" cy="13" r="0.6" fill="currentColor" />
-      {/* Plate */}
-      <path
-        d="M4 18.5 L28 18.5 L25 23 L7 23 Z"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-/**
  * Peacock-feather (Mayil) thin-line accent for the footer.
  */
 export function MayilFeatherAccent({ className = "" }: MotifProps) {

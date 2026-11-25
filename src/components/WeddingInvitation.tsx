@@ -17,7 +17,6 @@ import {
   VaazhaiMaram,
 } from "./TamilMotifs";
 import { Countdown } from "./Countdown";
-import { RsvpForm } from "./RsvpForm";
 import { ShareSection } from "./ShareSection";
 import { OptionalSections } from "./OptionalSections";
 import { RevealOnScroll } from "./RevealOnScroll";
@@ -376,22 +375,16 @@ export function WeddingInvitation() {
           </section>
         </RevealOnScroll>
 
-        {/* F. RSVP */}
-        <RevealOnScroll>
-          <PulliKolamDivider />
-          <RsvpForm />
-        </RevealOnScroll>
-
-        {/* G. SHARE */}
+        {/* F. SHARE */}
         <RevealOnScroll>
           <PulliKolamDivider />
           <ShareSection />
         </RevealOnScroll>
 
-        {/* H. OPTIONAL SECTIONS (HIDDEN UNLESS CONFIG POPULATED) */}
+        {/* G. OPTIONAL SECTIONS (HIDDEN UNLESS CONFIG POPULATED) */}
         <OptionalSections />
 
-        {/* I. FOOTER */}
+        {/* H. FOOTER */}
         <RevealOnScroll>
           <PulliKolamDivider />
           <footer className="text-center pt-2 pb-1">
