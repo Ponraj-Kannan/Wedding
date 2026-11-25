@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #FFF8EC;
+  --kumkum: #8B1A1A;
+  --gold: #B8860B;
+  --turmeric: #F2B705;
+  --text: #3B2A20;
+  --leaf: #4E6B3A;
+}
+
+html {
+  background-color: var(--cream);
+  color: var(--text);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--text);
+  font-family: var(--font-body), "Mukta Malar", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  min-height: 100dvh;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.font-tamil-serif {
+  font-family: var(--font-serif-tamil), "Noto Serif Tamil", Georgia, serif;
+}
+
+.font-tamil-body {
+  font-family: var(--font-body), "Mukta Malar", system-ui, sans-serif;
+}
+
+/* Soft fade-in on scroll with reduced-motion support */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal-section,
+  .reveal-section.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* CSS safeguard: prevent any flash of the mobile invitation on desktop pointers + wide viewports */
+.desktop-gate-fallback {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 769px) {
+  .invitation-shell {
+    display: none;
+  }
+  .desktop-gate-fallback {
+    display: flex;
+  }
+}
